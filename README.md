@@ -2,24 +2,20 @@
 
 Example workflows in R and Stata. Instructions for replicating the examples are below.
 
+
 ## Data
 
-We'll pretend that the `data/` folder in this repository is the directory containing synced SharePoint datasets (which live on disk after on-demand syncing).
+The example dataset is a 1.33GB CSV file "psam_p06.csv", which can be downloaded from the U.S. Census Bureau FTP: <https://www2.census.gov/programs-surveys/acs/data/pums/2021/5-Year/csv_pca.zip>
 
-To populate `data/`, you'll need to download waves 3 and 4 of the 2014 Survey of Income and Program Participation from the U.S. Census Bureau website.
+1. Download and unzip the file.
+2. Copy it to `data/` and to the shared network drive. 
 
-From each of the [wave 3](https://www.census.gov/programs-surveys/sipp/data/datasets/2014-panel/wave-3.html) and [wave 4](https://www.census.gov/programs-surveys/sipp/data/datasets/2014-panel/wave-4.html) pages, download the following links to `data/`:
 
--   Pipe-Delimited Text Format GNU gzip
-    -   Do not unzip
--   STATA Data Format (Version 13) DOS/Windows
-    -   Unzip to `data/` (no junk paths).
+## Benchmark
 
-## Stata and R versions
+In `benchmark.R`, check that the object `shared_drive` is the path to the shared drive on your machine, and edit if not. Run the script. Benchmarks will be saved in `benchmarks_r.csv`.
 
-`example.do` was written in Stata 17 but should work in most earlier versions (I'd say any version after 13 is a safe bet).
-
-`example.R` was written in R 4.3.0 but should work with any R version \>=4. I use [renv](https://rstudio.github.io/renv/) to manage package dependencies. To install the required packages:
+`benchmark.R` was written in R 4.3.1 but should work with any R version \>=4. I use [renv](https://rstudio.github.io/renv/) to manage package dependencies. To install the required packages:
 
 -   With R Studio (recommended): Open `example-cbpp-data-workflow.Rproj` and run `renv::restore()`
 -   Without R Studio: Open `example.R` , run `setwd()` to the project folder, then run `renv::restore()`.
